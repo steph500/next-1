@@ -14,6 +14,11 @@ function Login() {
                 <label htmlFor="password">Password</label><br />
                 <input type="password" name="password" id="password" />
             </div>
+            <div className={styles.grid}>
+                <button>
+                    Login
+                </button>
+            </div>
         </div>
     );
 }

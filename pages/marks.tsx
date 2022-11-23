@@ -1,10 +1,22 @@
 import styles from '../styles/Home.module.css'
+import { Marks } from './data/marks'
 
-function Marks() {
+// let data = new Marks;
+let data: any;
+
+export async function getMarks() {
+    const res = await fetch("http://localhost:3000/api/hello")
+    data = await res.json();
+    console.log("data")
+    return { props: {data}};
+}
+
+export default function Marks() {
     return ( 
         <>
         <h1>Enter your marks</h1>
         <div className={styles.grid}>
+            {data.candidateName}
             <label htmlFor="maths">Maths</label><br />
             <input type="number" name="maths" id="maths" /><br />
         </div>
@@ -47,5 +59,3 @@ function Marks() {
         </>
      );
 }
-
-export default Marks;
